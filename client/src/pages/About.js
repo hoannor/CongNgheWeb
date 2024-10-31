@@ -1,9 +1,10 @@
 import React from "react";
 import Layout from "./../components/Layout/Layout";
 
+// About us
 const About = () => {
   return (
-    <Layout title={"About us - Ecommerce app"}>
+    <Layout title={"About us"}>
       <div className="row contactus ">
         <div className="col-md-6 ">
           <img
@@ -13,7 +14,9 @@ const About = () => {
           />
         </div>
         <div className="col-md-4">
-          <h1 className="bg-dark p-2 text-white text-center">ABOUT US</h1>
+          <h1 className="bg-dark p-2 text-white text-center">
+            ABOUT US
+            </h1>
           <br></br>
           <p className="text-justify mt-2">
           Chào mừng bạn đến với nền tảng thương mại điện tử của chúng tôi! Tại đây, 

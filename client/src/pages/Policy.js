@@ -1,6 +1,7 @@
 import React from "react";
 import Layout from "./../components/Layout/Layout";
 
+// Policy
 const Policy = () => {
   return (
     <Layout title={"Privacy Policy - Ecommerce app"}>
@@ -15,10 +16,10 @@ const Policy = () => {
         <div className="col-md-4">
           <h1 className="bg-dark p-2 text-white text-center">PRIVACY POLICY</h1>
           <p className="text-justify mt-2">
-            Chúng tôi cam kết bảo vệ quyền riêng tư của bạn và đảm bảo rằng dữ liệu
-            cá nhân của bạn được bảo mật và chỉ được sử dụng theo cách mà bạn mong đợi. 
-            Chính sách bảo mật này cung cấp chi tiết về cách chúng tôi thu thập, sử dụng, 
-            và bảo vệ thông tin cá nhân của bạn khi sử dụng nền tảng thương mại điện tử của chúng tôi.
+          Chúng tôi cam kết bảo vệ quyền riêng tư và bảo mật thông tin cá nhân của bạn. 
+          Dữ liệu của bạn sẽ chỉ được sử dụng theo cách bạn mong đợi, nhằm nâng cao trải nghiệm 
+          khi sử dụng nền tảng của chúng tôi. Chính sách bảo mật này cung cấp chi tiết về cách 
+          chúng tôi thu thập, sử dụng và bảo vệ thông tin cá nhân của bạn.
           </p>
         </div>
       </div>

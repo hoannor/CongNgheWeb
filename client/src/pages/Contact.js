@@ -2,12 +2,14 @@ import React from 'react'
 import Layout from '../components/Layout/Layout'
 import { BiBeenHere, BiMailSend, BiPhoneCall, BiSupport } from 'react-icons/bi'
 
+// Contact 
 const Contact = () => {
   return (
     <Layout title={'Contact us'}>
         <div className='row contactus '>
           <div className='col-md-6 '>
-            <img src='/images/contactus.jpeg'
+            <img 
+            src='/images/contactus.jpeg'
             alt='contactus'
             style={{ width: "100%" }}
             />
@@ -15,7 +17,8 @@ const Contact = () => {
           <div className='col-md-4'>
             <h1 className='bg-dark p-2 text-white text-center'>CONTACT US</h1>
             <p className='text-justify mt-2'>
-            Mọi thắc mắc và thông tin về sản phẩm, vui lòng gọi bất cứ lúc nào chúng tôi sẵn sàng 24/7
+            Mọi thắc mắc và thông tin về sản phẩm, xin vui lòng liên hệ với chúng tôi. 
+            Chúng tôi luôn sẵn sàng phục vụ bạn bất cứ lúc nào.
             </p>
             <p className="mt-3">
               <BiBeenHere /> : Số 1 Đ. Đại Cồ Việt, Bách Khoa, Hai Bà Trưng, Hà Nội

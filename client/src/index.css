@@ -148,10 +148,17 @@ form{
   width: 100%;
   transition: all 0.3s ease;
 }
+.form-control::placeholder {
+  color: #646464;
+}
 
 .form-control:focus {
   border-color: #007bff;
   outline: none;
+}
+
+.form-control:focus::placeholder {
+  color: #000000;
 }
 
 .form-check-label {

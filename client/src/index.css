@@ -169,6 +169,7 @@ form{
   cursor: pointer;
 }
 
+.btn-primary,
 .btn-submit {
   background-color: #333333;
   border: 1px solid #444444;
@@ -181,14 +182,18 @@ form{
   transition: background-color 0.3s, transform 0.3s;
   display: flex;
   margin: 0 auto;
+  min-width: 70%;
+  justify-content: center;  
 }
 
+.btn-primary:hover,
 .btn-submit:hover {
   background-color: #555555;
   border-color: #666666;
   transform: scale(1.05);
 }
 
+.btn-primary:active,
 .btn-submit:active {
   transform: scale(0.98);
 }

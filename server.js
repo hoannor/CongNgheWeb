@@ -5,7 +5,7 @@ import morgan from 'morgan';
 import connectDB from "./config/db.js";
 import authRoutes from './routes/authRoute.js';
 import categoryRoutes from './routes/categoryRoutes.js';
-import cors from 'cors';
+import cors from "cors";
 
 // congigure env
 dotenv.config();

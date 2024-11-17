@@ -8,6 +8,7 @@ import {useNavigate} from "react-router-dom";
 const {Option}= Select;
 
 const CreateProduct = () => {
+    const navigate= useNavigate()
     const [categories,setCategories ] = useState([])
     const [name, setName]= useState("")
     const [description, setDescription]= useState("")
@@ -21,7 +22,6 @@ const CreateProduct = () => {
       const { data } = await axios.get("/api/v1/category/get-category");
       if (data?.success) {
         setCategories(data?.category);
-        navigate('/dash')
       }
     } catch (error) {
       console.log(error);
@@ -43,7 +43,7 @@ const CreateProduct = () => {
       productData.append("quantity",quantity)
       productData.append("photo",photo)
       productData.append("category",category)
-      const {data}= axios.post('/api/v1/product/creat-product',productData)
+      const {data}= await axios.post('/api/v1/product/creat-product',productData)
       if (data?.success) {
         toast.success('Product Create Successfully')
         navigate('/dashboard/admin/product')

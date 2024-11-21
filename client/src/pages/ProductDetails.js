@@ -21,7 +21,7 @@ const ProductDetails = () => {
         `/api/v1/product/get-product/${params.slug}`
       );
       setProduct(data?.product);
-      getSimilarProduct(data?.product._id, data?.product?.category?._id);
+      getSimilarProduct(data?.product._id, data?.product.category?._id);
     } catch (error) {
       console.log(error);
     }
@@ -77,12 +77,6 @@ const ProductDetails = () => {
                 <h5 className="card-title">{p.name}</h5>
                 <p className="card-text">{p.description.substring(0, 30)}...</p>
                 <p className="card-text"> $ {p.price}</p>
-                <button
-                  className="btn btn-primary ms-1"
-                  onClick={() => navigate(`/product/${p.slug}`)}
-                >
-                  More Details
-                </button>
                 <button class="btn btn-secondary ms-1">ADD TO CART</button>
               </div>
             </div>

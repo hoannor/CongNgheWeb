@@ -293,8 +293,8 @@ export const searchProductController = async (req, res) => {
 export const relatedProductController = async (req, res) => {
     try {
         const {pid, cid} = req.params;
-        const products = await productModel.
-        find({
+        const products = await productModel
+        .find({
             category: cid,
             _id:{ $ne: pid },
         })

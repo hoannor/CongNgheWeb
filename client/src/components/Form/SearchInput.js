@@ -7,11 +7,11 @@ const SearchInput = () => {
   const [values, setValues] = useSearch();
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(values);
     try {
-      const { data } = axios.get(`/api/v1/product/search/${values.keyword}`);
+      const { data } = await axios.get(`/api/v1/product/search/${values.keyword}`);
       setValues({ ...values, results: data });
       navigate(`/search`);
     } catch (error) {

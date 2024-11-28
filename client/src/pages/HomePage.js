@@ -11,7 +11,7 @@ const HomePage = () => {
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [checked, setChecked] = useState([]);
-  const [radio, setRadio] = useState([]);
+  const [radio, setRadio] = useState(null);
   const [total, setTotal] = useState(0);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
@@ -73,12 +73,13 @@ const HomePage = () => {
     }
   };
   useEffect(() => {
-    if (!checked.length || !radio.length) getAllProducts();
-  }, [checked.length, radio.length]);
+    if (radio == null || checked == null || !checked.length || !radio.length) getAllProducts();
+  }, [checked, radio]);
 
   useEffect(() => {
-    if (checked.length || radio.length) filterProduct();
+    if (radio != null || checked != null || checked.length || radio.length) filterProduct();
   }, [checked, radio]);
+
 
   // filter by cat
   const handleFilter = (value, id) => {
@@ -104,6 +105,12 @@ const HomePage = () => {
     }
   };
 
+  // reset filter 
+  const resetSelection = () => {
+    setRadio(null); // Reset to null or undefined
+    setChecked([]); // Reset to an empty list
+  };
+
   return (
     <Layout title={"Shop now"}>
       <div className="container-fluid row mt-3">
@@ -112,6 +119,7 @@ const HomePage = () => {
           <div className="d-flex flex-column mb-3">
             {categories?.map((c) => (
               <Checkbox
+                checked={checked.includes(c._id)}
                 key={c._id}
                 onChange={(e) => handleFilter(e.target.checked, c._id)}
               >
@@ -121,7 +129,7 @@ const HomePage = () => {
           </div>
           <h4 className="mb-3 text-center">Filter By Prices</h4>
           <div className="d-flex flex-column mb-3">
-            <Radio.Group onChange={(e) => setRadio(e.target.value)}>
+            <Radio.Group value={radio} onChange={(e) => setRadio(e.target.value)}>
               {Prices?.map((p) => (
                 <div key={p._id}>
                   <Radio value={p.array}>{p.name}</Radio>
@@ -132,7 +140,7 @@ const HomePage = () => {
           <div className="d-flex flex-column">
             <button
               className="btn btn-danger"
-              onClick={() => window.location.reload()}
+              onClick={() => resetSelection()}
             >
               Reset Filters
             </button>

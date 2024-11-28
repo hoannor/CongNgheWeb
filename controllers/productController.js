@@ -178,10 +178,10 @@ export const productFiltersController = async(req, res) => {
     try {
         const {checked, radio} = req.body
         let args = {}
-        if(checked.length > 0){
+        if(checked != null && checked.length > 0){
             args.category = checked
         }
-        if(radio.length){
+        if(radio != null && radio.length){
             args.price = {
                 $gte: radio[0],
                 $lte: radio[1]

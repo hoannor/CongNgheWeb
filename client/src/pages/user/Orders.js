@@ -38,12 +38,12 @@ const Orders = () => {
                                         <table className='table'>
                                             <thead>
                                                 <tr>
-                                                    <td scope='col'>#</td>
-                                                    <td scope='col'>Status</td>
-                                                    <td scope='col'>Buyer</td>
-                                                    <td scope='col'>Orders</td>
-                                                    <td scope='col'>Payment</td>
-                                                    <td scope='col'>Quantity</td>
+                                                    <th scope='col'>#</th>
+                                                    <th scope='col'>Status</th>
+                                                    <th scope='col'>Buyer</th>
+                                                    <th scope='col'>Orders</th>
+                                                    <th scope='col'>Payment</th>
+                                                    <th scope='col'>Quantity</th>
                                                 </tr>
                                             </thead>
                                             <tbody>

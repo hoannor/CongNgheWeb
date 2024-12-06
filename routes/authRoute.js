@@ -1,5 +1,5 @@
 import express from 'express'
-import { registerController, loginController, testController, forgotPasswordController, updateProfileController, getAllOrderController, getAllOrdersController, getOrderController, orderStatusController } from '../controllers/authController.js'
+import { registerController, loginController, testController, forgotPasswordController, updateProfileController, getAllOrdersController, getOrderController, orderStatusController } from '../controllers/authController.js'
 import { isAdmin, requireSignIn } from '../middlewares/authMiddleware.js'
 
 // router object

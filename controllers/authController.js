@@ -1,6 +1,6 @@
 import { message } from "antd";
 import userModel from "../models/userModel.js";
-import orderModel from "../models/OrderModel.js";
+import orderModel from "../models/orderModel.js";
 import { comparePassword, hashPassword } from "./../helpers/authHelper.js";
 import JWT from "jsonwebtoken";
 

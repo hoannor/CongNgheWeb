@@ -1,5 +1,5 @@
-import React from 'react'
-import { NavLink, Link } from 'react-router-dom'
+import React from "react";
+import { NavLink, Link } from "react-router-dom";
 import { FaBagShopping } from "react-icons/fa6";
 import { useAuth } from '../../context/auth';
 import toast from 'react-hot-toast';
@@ -17,10 +17,10 @@ const Header = () => {
       ...auth,
       user: null,
       token: "",
-  });
-  localStorage.removeItem('auth');
-  toast.success('Logout Successfully')
-  }
+    });
+    localStorage.removeItem("auth");
+    toast.success("Logout Successfully");
+  };
   return (
     <>
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -59,10 +59,14 @@ const Header = () => {
                   !auth.user ? (
                   <>
                   <li className="nav-item">
-                    <NavLink to="/register" className="nav-link" href="#">Register</NavLink>
+                    <NavLink to="/register" className="nav-link" href="#">
+                      Register
+                    </NavLink>
                   </li>
                   <li className="nav-item">
-                    <NavLink to="/login" className="nav-link" href="#">Login</NavLink>
+                    <NavLink to="/login" className="nav-link" href="#">
+                      Login
+                    </NavLink>
                   </li>
                   </>
                   ) : (
@@ -96,7 +100,7 @@ const Header = () => {
         </nav>
 
     </>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

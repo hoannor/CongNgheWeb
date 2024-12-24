@@ -32,6 +32,11 @@
   font-weight: 700;
   font-family: 'roboto', sans-serif;
   letter-spacing: 3px;
+  gap: 10px;
+}
+
+.navbar-nav {
+  gap: 10px;
 }
 
 /* main */
@@ -143,7 +148,7 @@ form{
   /* background-color: #2b2b2b; */
   border: 1px solid #444;
   border-radius: 5px;
-  color: #ffffff;
+  /* color: #ffffff; */
   padding: 10px;
   width: 100%;
   transition: all 0.3s ease;
@@ -186,6 +191,10 @@ form{
   justify-content: center;  
 }
 
+.btn-add-to-cart-dt {
+  min-width: auto;
+}
+
 .btn-primary:hover,
 .btn-submit:hover {
   background-color: #555555;
@@ -212,4 +221,8 @@ form{
     opacity: 1;
     transform: translateY(0);
   }
+}
+//Search
+.form-control .me-2 .text-search {
+  color: #000 !important;
 }

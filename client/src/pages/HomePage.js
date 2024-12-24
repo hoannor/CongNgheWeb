@@ -8,8 +8,8 @@ import { useCart } from "../context/cart";
 import toast from "react-hot-toast";
 
 const HomePage = () => {
-  const navigate = useNavigate()
-  const [cart, setCart] = useCart() 
+  const navigate = useNavigate();
+  const [cart, setCart] = useCart();
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [checked, setChecked] = useState([]);
@@ -21,7 +21,9 @@ const HomePage = () => {
   //get total count
   const getTotal = async () => {
     try {
-      const { data } = await axios.get(`${process.env.REACT_APP_API}/api/v1/product/product-count`);
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_API}/api/v1/product/product-count`
+      );
       setTotal(data?.total);
     } catch (error) {
       console.log(error);
@@ -36,7 +38,9 @@ const HomePage = () => {
   const loadMore = async () => {
     try {
       setLoading(true);
-      const { data } = await axios.get(`${process.env.REACT_APP_API}/api/v1/product/product-list/${page}`);
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_API}/api/v1/product/product-list/${page}`
+      );
       setLoading(false);
       setProducts([...products, ...data?.products]);
     } catch (error) {
@@ -45,11 +49,12 @@ const HomePage = () => {
     }
   };
 
-
   //get all categories
   const getAllCategory = async () => {
     try {
-      const { data } = await axios.get(`${process.env.REACT_APP_API}/api/v1/category/get-category`);
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_API}/api/v1/category/get-category`
+      );
       if (data?.success) {
         setCategories(data?.category);
       }
@@ -67,7 +72,9 @@ const HomePage = () => {
   const getAllProducts = async () => {
     try {
       setLoading(true);
-      const { data } = await axios.get(`${process.env.REACT_APP_API}/api/v1/product/product-list/${page}`);
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_API}/api/v1/product/product-list/${page}`
+      );
       setProducts(data.products);
     } catch (error) {
       setLoading(false);
@@ -75,13 +82,14 @@ const HomePage = () => {
     }
   };
   useEffect(() => {
-    if (radio == null || checked == null || !checked.length || !radio.length) getAllProducts();
+    if (radio == null || checked == null || !checked.length || !radio.length)
+      getAllProducts();
   }, [checked, radio]);
 
   useEffect(() => {
-    if (radio != null || checked != null || checked.length || radio.length) filterProduct();
+    if (radio != null || checked != null || checked.length || radio.length)
+      filterProduct();
   }, [checked, radio]);
-
 
   // filter by cat
   const handleFilter = (value, id) => {
@@ -97,17 +105,20 @@ const HomePage = () => {
   //get filterd product
   const filterProduct = async () => {
     try {
-      const { data } = await axios.post(`${process.env.REACT_APP_API}/api/v1/product/product-filters`, {
-        checked,
-        radio,
-      });
+      const { data } = await axios.post(
+        `${process.env.REACT_APP_API}/api/v1/product/product-filters`,
+        {
+          checked,
+          radio,
+        }
+      );
       setProducts(data?.products);
     } catch (error) {
       console.log(error);
     }
   };
 
-  // reset filter 
+  // reset filter
   const resetSelection = () => {
     setRadio(null); // Reset to null or undefined
     setChecked([]); // Reset to an empty list
@@ -131,7 +142,10 @@ const HomePage = () => {
           </div>
           <h4 className="mb-3 text-center">Filter By Prices</h4>
           <div className="d-flex flex-column mb-3">
-            <Radio.Group value={radio} onChange={(e) => setRadio(e.target.value)}>
+            <Radio.Group
+              value={radio}
+              onChange={(e) => setRadio(e.target.value)}
+            >
               {Prices?.map((p) => (
                 <div key={p._id}>
                   <Radio value={p.array}>{p.name}</Radio>
@@ -140,10 +154,7 @@ const HomePage = () => {
             </Radio.Group>
           </div>
           <div className="d-flex flex-column">
-            <button
-              className="btn btn-danger"
-              onClick={() => resetSelection()}
-            >
+            <button className="btn btn-danger" onClick={() => resetSelection()}>
               Reset Filters
             </button>
           </div>
@@ -151,13 +162,14 @@ const HomePage = () => {
         <div className="col-md-9">
           <h1 className="text-center">All Products</h1>
           <div className="d-flex flex-wrap">
-            <div className="d-flex flex-wrap">
+            <div className="d-flex flex-wrap justify-content-evenly">
               {products?.map((p) => (
                 <div className="card m-2" style={{ width: "18rem" }}>
                   <img
                     src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
                     className="card-img-top"
                     alt={p.name}
+                    height={"350px"}
                   />
                   <div className="card-body">
                     <h5 className="card-title">{p.name}</h5>
@@ -165,13 +177,25 @@ const HomePage = () => {
                       {p.description.substring(0, 30)}...
                     </p>
                     <p className="card-text"> $ {p.price}</p>
-                    <button class="btn btn-primary ms-1 mb-1" 
-                    onClick={() => navigate(`/product/${p.slug}`)}>More Details</button>
-                    <button class="btn btn-secondary ms-1" onClick={() => {
-                      setCart([...cart, p])
-                      localStorage.setItem('cart', JSON.stringify([...cart, p]))
-                      toast.success("Item added to cart")
-                    }}>ADD TO CART</button>
+                      <button
+                        class="btn btn-primary mb-1"
+                        onClick={() => navigate(`/product/${p.slug}`)}
+                      >
+                        More Details
+                      </button>
+                      <button
+                        class="btn btn-primary"
+                        onClick={() => {
+                          setCart([...cart, p]);
+                          localStorage.setItem(
+                            "cart",
+                            JSON.stringify([...cart, p])
+                          );
+                          toast.success("Item added to cart");
+                        }}
+                      >
+                        ADD TO CART
+                      </button>
                   </div>
                 </div>
               ))}

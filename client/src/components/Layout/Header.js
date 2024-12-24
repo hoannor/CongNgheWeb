@@ -29,10 +29,10 @@ const Header = () => {
               <span className="navbar-toggler-icon" />
             </button>
             <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-              <Link to="/" className="navbar-brand"><FaBagShopping/> 
+              <Link to="/" className="navbar-brand d-flex align-items-center"><FaBagShopping/> 
               Shoppee Fake
               </Link>
-              <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+              <ul className="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
                 <SearchInput />
                 <li className="nav-item">
                   <NavLink to="/" className="nav-link">

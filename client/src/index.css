@@ -222,7 +222,7 @@ form{
     transform: translateY(0);
   }
 }
-//Search
+/* Search */
 .form-control .me-2 .text-search {
   color: #000 !important;
 }

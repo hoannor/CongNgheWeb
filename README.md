@@ -47,7 +47,8 @@ Website bán hàng này là một ứng dụng **SPA** giúp tối ưu trải ng
 - **Backend**:  
   - **Node.js**: API để xử lý logic và giao tiếp với cơ sở dữ liệu.  
   - **JWT**: Xác thực người dùng bằng token.  
-
+  - **Bcrypt**: Mã hóa mật khẩu.
+  - **Mongoose**: Kết nối với MongoDB.
 - **Cơ sở dữ liệu**:  
   - **MySQL**: Lưu trữ dữ liệu người dùng, sản phẩm và đơn hàng.  
 

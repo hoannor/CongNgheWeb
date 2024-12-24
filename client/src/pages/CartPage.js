@@ -91,7 +91,7 @@ const CartPage = () => {
                     </h4>
                 </div>
             </div>
-            <div className='row'>
+            <div className='d-flex justify-content-around row mb-4'>
                 <div className='col-md-6'>
                     {
                         cart?.map( p => (
@@ -102,10 +102,10 @@ const CartPage = () => {
                                         className="card-img-top"
                                         alt={p.name}
                                         width="100px"
-                                        height={`100px`}
+                                        height={`auto`}
                                     />
                                 </div>
-                                <div className='col-md-8'>
+                                <div className='col-md-8 d-flex flex-column justify-content-center w-auto'>
                                     <p>{p.name}</p>
                                     <p>{p.description.substring(0,30)}</p>
                                     <p>Price : {p.price}</p>

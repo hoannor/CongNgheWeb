@@ -219,7 +219,7 @@ const UpdateProduct = () => {
                   UPDATE PRODUCT
                 </button>
               </div>
-              <div className="mb-3">
+              <div className="mb-3 d-flex justify-content-center">
                 <button className="btn btn-danger" onClick={handleDelete}>
                   DELETE PRODUCT
                 </button>

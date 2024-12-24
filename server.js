@@ -18,7 +18,10 @@ connectDB();
 const app = express();
 
 // middlewares
-app.use(cors());
+app.use(cors({
+    origin: process.env.REACT_APP_FE_URL, // Thay bằng domain frontend của bạn
+    credentials: true,
+  }));
 app.use(express.json());
 app.use(morgan(`dev`));
 

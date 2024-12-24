@@ -35,7 +35,7 @@ const CategoryProduct = () => {
         <h6 className="text-center">{products?.length} result found </h6>
         <div className="row d-flex justify-content-center">
           <div className="col-md-9">
-            <div className="d-flex flex-wrap">
+            <div className="d-flex flex-wrap justify-content-center">
               {products?.map((p) => (
                 <div
                   className="card m-2"

@@ -42,10 +42,8 @@
 /* main */
 main {
   display: flex;
-  /* justify-content: center; */
   align-items: center;
   flex-direction: column;
-  padding: 10px 0 0;
 }
 
 /* footer css */

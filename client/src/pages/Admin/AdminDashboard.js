@@ -12,8 +12,8 @@ const AdminDashboard = () => {
           <div className="col-md-3">
             <AdminMenu />
           </div>
-          <div className="col-md-9">
-            <div className="card shadow-lg p-4 rounded">
+          <div className="col-md-9 d-flex justify-content-center">
+            <div className="card shadow-lg p-4 rounded w-100">
               <h3 className="mb-3">Admin Name: {auth?.user?.name}</h3>
               <p className="text-muted mb-2">
                 Admin Email: {auth?.user?.email}

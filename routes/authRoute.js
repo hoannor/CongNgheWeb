@@ -1,9 +1,9 @@
 import express from 'express'
-import { registerController, loginController, testController, forgotPasswordController, updateProfileController, getAllOrdersController, getOrderController, orderStatusController } from '../controllers/authController.js'
+import { registerController, loginController, testController, forgotPasswordController, updateProfileController, getAllOrdersController, getOrderController, orderStatusController, getAllUser, deleteUser } from '../controllers/authController.js'
 import { isAdmin, requireSignIn } from '../middlewares/authMiddleware.js'
 
 // router object
-const router = express.Router()
+export const router = express.Router()
 
 // routing
 // REGISTER || METHOD POST
@@ -29,6 +29,11 @@ router.get('/admin-auth', requireSignIn, isAdmin, (req, res) => {
     res.status(200).send({ok: true});
 })
 
+// API lấy danh sách người dùng
+router.get('/users', requireSignIn, isAdmin, getAllUser);
+  
+// API xóa người dùng
+router.delete('/users/:id', requireSignIn, isAdmin, deleteUser);
 // update profile
 router.put('/profile', requireSignIn, updateProfileController)
 

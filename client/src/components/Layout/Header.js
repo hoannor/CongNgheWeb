@@ -30,7 +30,7 @@ const Header = () => {
             </button>
             <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
               <Link to="/" className="navbar-brand d-flex align-items-center"><FaBagShopping/> 
-              Shoppee Fake
+              BK SHOP
               </Link>
               <ul className="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
                 <SearchInput />

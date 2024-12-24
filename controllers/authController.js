@@ -3,11 +3,13 @@ import userModel from "../models/userModel.js";
 import orderModel from "../models/orderModel.js";
 import { comparePassword, hashPassword } from "./../helpers/authHelper.js";
 import JWT from "jsonwebtoken";
+import { requireSignIn, isAdmin } from "../middlewares/authMiddleware.js";
+import { router } from "../routes/authRoute.js";
 
 // Register Controller
 export const registerController = async (req, res) => {
   try {
-    const { name, email, password, phone, address, answer } = req.body;
+    const { name, email, password, phone, address} = req.body;
     // Validations
     if (!name) {
       return res.send({ error: "Name is Required" });
@@ -23,9 +25,6 @@ export const registerController = async (req, res) => {
     }
     if (!address) {
       return res.send({ message: "Address is Required" });
-    }
-    if (!answer) {
-      return res.send({ message: "Answer is Required" });
     }
     // Check existing user
     const existingUser = await userModel.findOne({ email });
@@ -44,7 +43,6 @@ export const registerController = async (req, res) => {
       phone,
       address,
       password: hashedPassword,
-      answer,
     }).save();
 
     res.status(201).send({
@@ -163,6 +161,27 @@ export const testController = (req, res) => {
     res.send({ error });
   }
 };
+
+export const getAllUser = async (req, res) => {
+  try {
+    const users = await userModel.find(); // Lấy toàn bộ người dùng
+    res.json(users);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Error fetching users');
+  }
+}
+
+export const deleteUser = async (req, res) => {
+  try {
+    const userId = req.params.id;
+    await userModel.findByIdAndDelete(userId); // Xóa người dùng theo ID
+    res.status(200).send('User deleted successfully');
+} catch (error) {
+    console.error(error);
+    res.status(500).send('Error deleting user');
+}
+}
 
 // Update Profile Controller
 export const updateProfileController = async (req, res) => {

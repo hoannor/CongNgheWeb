@@ -40,6 +40,9 @@ Website bán hàng này là một ứng dụng **SPA** giúp tối ưu trải ng
 - **Frontend**:  
   - **React**: Để xây dựng giao diện SPA.  
   - **Bootstrap**: Tùy chỉnh giao diện nhanh chóng và hiện đại.
+  - **Ant Design**: Thư viện UI/UX phổ biến.
+  - **React Router**: Quản lý các trang SPA.
+  - **Axios**: Gửi yêu cầu HTTP.
 
 - **Backend**:  
   - **Node.js**: API để xử lý logic và giao tiếp với cơ sở dữ liệu.  
